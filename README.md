@@ -54,6 +54,8 @@ pip install -r requirements.txt
 pip install submodules/simple-knn
 pip install submodules/diff-gaussian-rasterization
 pip install submodules/fused-ssim
+pip install plyfile
+pip install open3d
 ```
 
 1. Optional but highly suggested, compile the cuda kernels for RoPE (as in CroCo v2).
