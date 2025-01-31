@@ -40,8 +40,9 @@ https://github.com/zhiwenfan/zhiwenfan.github.io/assets/34684115/748ae0de-8186-4
 ```bash
 git clone --recursive https://github.com/NVlabs/InstantSplat.git
 cd InstantSplat
-mkdir -p mast3r/checkpoints/
-wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P mast3r/checkpoints/
+if not exist "mast3r\checkpoints" mkdir "mast3r\checkpoints"
+curl -o mast3r\checkpoints\MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth ^
+     https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
 ```
 
 2. Create the environment (or use pre-built docker), here we show an example using conda.
@@ -60,6 +61,7 @@ pip install submodules/fused-ssim
 # DUST3R relies on RoPE positional embeddings for which you can compile some cuda kernels for faster runtime.
 cd croco/models/curope/
 python setup.py build_ext --inplace
+cd ../../..
 ```
 
 ### Usage
