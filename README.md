@@ -8,8 +8,9 @@
 </h5>
 
 <div align="center">
-This repository is the official implementation of InstantSplat, an sparse-view, SfM-free framework for large-scale scene reconstruction method using Gaussian Splatting.
+This repository is a modified implementation of InstantSplat, an sparse-view, SfM-free framework for large-scale scene reconstruction method using Gaussian Splatting.
 InstantSplat supports 3D-GS, 2D-GS, and Mip-Splatting.
+This version works for Windows! Enjoy!
 </div>
 <br>
 
@@ -59,7 +60,7 @@ pip install open3d
 pip install "imageio[ffmpeg]"
 ```
 
-1. Optional but highly suggested, compile the cuda kernels for RoPE (as in CroCo v2).
+3. **Optional but highly suggested**, compile the cuda kernels for RoPE (as in CroCo v2).
 ```bash
 # DUST3R relies on RoPE positional embeddings for which you can compile some cuda kernels for faster runtime.
 cd croco/models/curope/
@@ -67,21 +68,56 @@ python setup.py build_ext --inplace
 cd ../../..
 ```
 
-### Usage
-1. Data preparation (Our pre-processed data: [link](https://drive.google.com/file/d/1Z17tIgufz7-eZ-W0md_jUlxq89CD1e5s/view))
+4. Download the [run_infer.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/run_infer.py) and [instantsplat_gradio.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/instantsplat_gradio.py) and place them in the root folder (C:/user/<username>/InstantSplat)
+<br><br>
+
+### Data Prep
+The original project provides a few examples to try, you can also download their pre-processed data: [link](https://drive.google.com/file/d/1Z17tIgufz7-eZ-W0md_jUlxq89CD1e5s/view)
+
+Place 3, 6, or 12 photos in an images folder nested in a project foler. Here is an example of what it should look like:
+
 ```bash
-  cd <data_path>
-  # then do whatever data preparation
+Projects/
+├── Scene
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── image3.jpg 
 ```
 
-2. Command
+InstantSplat comes with example data to use as a test located at:
 ```bash
-  # InstantSplat train and output video (no GT reference, render by interpolation) using the following command.
-  bash scripts/run_infer.sh
-
-  # InstantSplat train and evaluate (with GT reference) using the following command.
-  bash scripts/run_eval.sh
+assets/
+└── sora/
+    └── Santorini/
+        └── images/
+            ├── image1.jpg
+            ├── image2.jpg
+            └── image3.jpg
+    └── Art/
+        └── images/
+            ├── image1.jpg
+            ├── image2.jpg
+            └── image3.jpg
 ```
+
+### Running Inference
+The windows implementation currently only supports inference. If you are looking to run eval, refer to the original project page.
+
+#### Using Gradio
+Run `python instantsplat_gradio.py`
+
+Once launch, navigate to `http://127.0.0.1:7860/` in your browser.
+
+#### Using CLI
+Run `python run_infer.py /path/to/input/images /path/to/output --n_views 3 --iterations 1000`
+
+**Command line arguments:**
+
+**--n_views**
+Number of input views. Must be 3, 6, or 9
+
+**--iterations 1000**
+Number of training iterations, can be set from 1000 to 30000. Suggested increasing in increments of 1000.
 
 ## Acknowledgement
 
