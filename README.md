@@ -21,7 +21,9 @@ This version works for Windows! Enjoy!
 - [TODO List](#todo-list)
 - [Get Started](#get-started)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [Troubleshooting](#troubleshooting)
+  - [Data Prep](#data-prep)
+  - [Running Inference](#running-inference)
 - [Acknowledgement](#acknowledgement)
 - [Citation](#citation)
 
@@ -70,7 +72,7 @@ cd ../../..
 
 4. Download the [run_infer.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/run_infer.py) and [instantsplat_gradio.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/instantsplat_gradio.py) and place them in the root folder `C:/user/<username>/InstantSplat`
 
-**TROUBLESHOOTING**
+### TROUBLESHOOTING
 If you have CUDA Toolkit 12.6, I ran into issues running: 
 ```bash
 conda install pytorch torchvision pytorch-cuda=12.6 -c pytorch -c nvidia
