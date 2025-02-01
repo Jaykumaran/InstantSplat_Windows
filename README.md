@@ -68,7 +68,24 @@ python setup.py build_ext --inplace
 cd ../../..
 ```
 
-4. Download the [run_infer.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/run_infer.py) and [instantsplat_gradio.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/instantsplat_gradio.py) and place them in the root folder (C:/user/<username>/InstantSplat)
+4. Download the [run_infer.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/run_infer.py) and [instantsplat_gradio.py](https://github.com/jonstephens85/InstantSplat_Windows/blob/main/instantsplat_gradio.py) and place them in the root folder `C:/user/<username>/InstantSplat`
+
+**TROUBLESHOOTING**
+If you have CUDA Toolkit 12.6, I ran into issues running: 
+```bash
+conda install pytorch torchvision pytorch-cuda=12.6 -c pytorch -c nvidia
+```
+I downloaded and installed CUDA Toolkit 11.8. Then set CUDA Toolkit 11.8 for your command session using:
+```bash
+set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+set PATH=%CUDA_HOME%\bin;%PATH%
+set LD_LIBRARY_PATH=%CUDA_HOME%\lib64;%LD_LIBRARY_PATH%
+```
+Then running 
+```bash
+conda install pytorch torchvision pytorch-cuda=11.8 -c pytorch -c nvidia
+```
+You can check what version of CUDA Toolkit you are running by using `nvcc --version`
 <br><br>
 
 ### Data Prep
