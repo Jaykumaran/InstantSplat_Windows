@@ -38,6 +38,9 @@ https://github.com/zhiwenfan/zhiwenfan.github.io/assets/34684115/748ae0de-8186-4
 
 ## Get Started
 
+**Make your life a lot easier, follow along with the tutorail video I created.**<br>
+[Watch it here](https://youtu.be/VHDq2v8hEA8)
+
 ### Installation
 1. Clone InstantSplat and download pre-trained model.
 ```bash
