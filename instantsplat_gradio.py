@@ -81,7 +81,7 @@ with gr.Blocks() as demo:
         with gr.Column():
             input_dir = gr.Textbox(label="Input Directory")
             output_dir = gr.Textbox(label="Output Directory")
-            n_views = gr.Dropdown(choices=[3, 6, 12], value=3, label="Number of Views")
+            n_views = gr.Textbox(label="Number of Images or Views")
             iterations = gr.Slider(minimum=1000, maximum=30000, value=1000, step=1000, label="Training Iterations")
             process_btn = gr.Button("Process Scene")
         with gr.Column():
